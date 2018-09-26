@@ -1,0 +1,167 @@
+@import '../../../containers/App/styles/variables';
+
+:local(.styles) {
+
+    .form-field {
+        margin: 5px;
+    }
+
+    .btn-pre {
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+
+    .btn-next {
+        margin-right: 2px;
+    }
+
+    .msg-box {
+        border: dotted 1px black;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+    .metamask-logo {
+        max-width: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .add-asset-view-form-container {
+        margin-top: 20px;
+    }
+
+    .wiz-btn-container {
+        text-align: right;
+        padding: 20px 0px;
+        overflow: auto;
+    }
+
+    .error {
+        color: red;
+    }
+
+    #add-asset-view {
+        margin: auto;
+
+        .img-placeholder {
+            text-align: center;
+            width: 200px;
+            display: block;
+            object-fit: cover;
+            margin: auto;
+            margin-top: 0px;
+        }
+
+        .img-uploaded {
+            text-align: center;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            margin: auto;
+            margin-top: 0px;
+        }
+    }
+
+    #registration-details .title {
+        font-weight: bold
+    }
+
+
+
+    #unique-hash {
+        font-size: 36px;
+        word-break: break-all;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .notification {
+        height: 100%;
+        height: 100%;
+        margin: 10px 0px;
+
+        span.action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+    #hash-progress-indicator {
+        margin-top: 75px;
+        margin-bottom: 50px;
+        text-align: center;
+
+        span {
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    }
+
+    #registration-details {
+        margin: 0 auto;
+        margin-top: 30px;
+
+        li {
+            padding: 10px;
+
+            span:nth-child(1) {
+                display: inline-block;
+                width: 140px;
+            }
+
+            span:nth-child(2) {
+                text-align: right;
+                max-width: 340px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-word;
+            }
+
+            &:first-child,
+            &:last-child {
+                border-top: 1px dotted $lighterGrey;
+            }
+
+            &:last-child {
+                font-weight: normal;
+            }
+        }
+    }
+
+    svg {
+        zoom: 1.6;
+    }
+}
+
+:local(.modalStyles) {
+
+    .metamask-logo {
+        max-width: 40%;
+        margin-right: 100%;
+        margin-left: 100%;
+    }
+
+    .modal-content {
+        position: relative;
+        padding: 0 40px 50px 40px;
+
+        .message {
+            p {
+                color: $black;
+                line-height: 1.5;
+                position: relative;
+                left: 10px;
+                font-weight: bold;
+            }
+        }
+    }
+}

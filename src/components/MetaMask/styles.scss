@@ -1,0 +1,59 @@
+
+:local(.styles) {
+    .metamask-logo {
+        max-width: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .img-placeholder {
+        text-align: center;
+        width: 200px;
+        display: block;
+        object-fit: cover;
+        margin: auto;
+        margin-top: 0px;
+    }
+
+    .img-uploaded {
+        text-align: center;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        margin: auto;
+        margin-top: 0px;
+    }
+
+
+    .progress-indicator {
+        margin: auto;
+        text-align: center;
+        height: 70px;
+        width: 70px;
+    }
+}
+
+:local(.modalStyles) {
+
+    .metamask-logo {
+        max-width: 40%;
+        margin-right: 100%;
+        margin-left: 100%;
+    }
+
+    .modal-content {
+        position: relative;
+        padding: 0 40px 50px 40px;
+
+        .message {
+            p {
+                color: $black;
+                line-height: 1.5;
+                position: relative;
+                left: 10px;
+                font-weight: bold;
+            }
+        }
+    }
+}

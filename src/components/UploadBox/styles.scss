@@ -1,0 +1,47 @@
+:local(.styles) {
+    color: $black;
+
+    #upload-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px dotted $lighterGrey;
+        height: 80%;
+        margin: 0 auto;
+        background: $beige;
+        padding: 10px;
+
+        &.drop {
+            border: 3px dashed $pink;
+        }
+
+        .btn {
+            float: none;
+        }
+    }
+
+    #upload-actions {
+        text-align: center;
+
+        span,
+        #file-list {
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        #upload-text {
+            clear: both;
+            text-align: center;
+        }
+    }
+
+    .upload-icon {
+        font-size: 50px;
+        color: $pink;
+        margin-bottom: 10px;
+    }
+
+    input[name="myFile"] {
+        display: none;
+    }
+}
