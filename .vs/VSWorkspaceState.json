@@ -1,16 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src\\components",
-    "\\src\\components\\AssetList",
-    "\\src\\components\\Image",
-    "\\src\\components\\MetaMask",
-    "\\src\\containers",
-    "\\src\\containers\\AddAssetView",
-    "\\src\\core",
-    "\\src\\core\\actions",
-    "\\src\\core\\reducers",
-    "\\src\\core\\utils"
+    ""
   ],
   "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false

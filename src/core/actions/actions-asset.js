@@ -165,8 +165,9 @@ export function register() {
       const { assetImgBuffer, assetHash, desc, tags, price, name, email } = getState().asset
 
       return new Promise((resolve, reject) => {
-          ipfs.files.add(assetImgBuffer, function (err, files) {
-              _register(getAssetRepoContract(getState), assetImgBuffer, assetHash, desc, tags, price, name, email, resolve, reject)
+          ipfs.files.add(assetImgBuffer, { pin: true }, function (err, files) {
+              console.log(files);
+              _register(getAssetRepoContract(getState), assetImgBuffer, files[0].hash, desc, tags, price, name, email, resolve, reject)
           })
     })
         .then((result) => {
@@ -174,6 +175,7 @@ export function register() {
                 for (var i = 0; i < result.logs.length; i++) {
                     var log = result.logs[i];
                     if (log.event == "AssetRegisteredEvent") {
+
                         dispatchAssetCreated(result, log.args.id.toNumber(), log.args.assetHash, log.args.desc, log.args.tags, log.args.price.toNumber(), log.args.ownerName, log.args.ownerEmail, dispatch)
                         break;
                     }

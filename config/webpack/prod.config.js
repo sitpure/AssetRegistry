@@ -47,12 +47,15 @@ module.exports = {
       },
       __DEVELOPMENT__: false,
     }),
-    new ExtractTextPlugin({filename:'bundle.css'}),
+      new ExtractTextPlugin({ filename: 'bundle.css' }),
+
+    /* This plugin is causing some issue in prod build
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false,
-      },
-    }),
+          warnings: false
+        }
+    }),*/
+
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),

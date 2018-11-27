@@ -3,7 +3,7 @@ var HDWalletProvider = require("truffle-hdwallet-provider");
 
 var infura_apikey = "XXXXXX";
 //var mnemonic = "twelve words you can find in metamask/settings/reveal seed words blabla";
-var mnemonic = "service citizen day suspect under game wait mask lake keen denial sausage";
+var mnemonic = "able middle hen maximum luggage merge dawn holiday gun pear elephant captain";
 
 module.exports = {
     migrations_directory: "./migrations",

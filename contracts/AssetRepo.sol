@@ -1,9 +1,11 @@
 
-pragma solidity ^0.4.18;
+// https://github.com/Shinobi881/react-dapp-material-ui/blob/master/contracts/Authentication.sol
 
+pragma solidity ^0.4.18;
 pragma experimental ABIEncoderV2;
 
-contract AssetRepo {
+import './zeppelin/ownership/Ownable.sol';
+contract AssetRepo is Ownable {
 
   struct Asset{
 		string desc;
@@ -48,13 +50,27 @@ contract AssetRepo {
     return assets_hash[assetHash] > 0;
   }
   
-  function calculaions2() constant returns (uint32) {
-    return 23;
-  }
    
-   
+   function calcu() returns(uint32) {
+     return 10;
+   }
+
   event AssetRegisteredEvent(uint32 id, string assetHash, string desc, string tags, uint32 price, string ownerName, string ownerEmail);
+  event AssetDeletedEvent(uint32 id);
   
+  function deleteAll() public onlyOwner {
+
+		  delete assets_key;
+		  assets_key.length = 0;
+
+		//delete allData[msg.sender].assets;
+		//delete allData[msg.sender].purchases;
+		//delete allData[msg.sender].sales;
+
+		AssetDeletedEvent(0);
+  }
+
+
 
   function registerAsset(string assetHash, string desc, string tags, uint32 price, string ownerName, string ownerEmail) public {
 	//require(assetHash.length >= 10);		
@@ -114,6 +130,8 @@ contract AssetRepo {
 	return assets[id];		
   }
   
+
+
   uint32[] randomnumbers ;
   
   function randowms() public view returns (uint32 []){

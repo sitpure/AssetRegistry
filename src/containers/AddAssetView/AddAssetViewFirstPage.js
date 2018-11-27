@@ -10,8 +10,9 @@ import metaMaskImg from 'assets/images/metamask.png'
 import Button from 'components/Button'
 import { getFileData, getString } from 'core/utils/util-assets'
 
+import ProgressIndicator from 'components/ProgressIndicator'
 import ipfs from 'core/utils/util-ipfs';
-import { getMultiHash } from 'core/utils/util-multiHash';
+import { getMultiHash, getMultiHashFromFile } from 'core/utils/util-multiHash';
 
 /* component styles */
 import { styles, modalStyles } from './styles.scss'
@@ -29,42 +30,64 @@ class AddAssetViewFirstPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            fileAdded: false,
-            asset: null
+            asset: null,
+            checking : false
         }
     }
 
     onDrop = () => {
-        this.setState({
-            fileAdded: true
-        })
+        // mandatory function. Don't remove
     }
 
     setUploadedFile = (file) => {
-        const { actions } = this.props
+        const { actions, asset } = this.props
+        asset.alreadyExists = false
+        this.setState({
+            checking: true
+        })
 
         getFileData(file[0]).then((assetImgBuffer) => {
             getString(file[0], (imageUrl) => {
-                getMultiHash(assetImgBuffer).then((assetHash) => {
+                getMultiHashFromFile(assetImgBuffer).then((assetHash) => {
                     actions.asset.clear()
                     actions.asset.addAsset(imageUrl, assetImgBuffer, assetHash)
                     actions.asset.checkIfRegistered(assetHash)
+                    this.setState({
+                        checking: false
+                    })
                 })
             })
         })
   }
 
     render() {
-
         const { handleSubmit, asset } = this.props;
         let content
+
         if (asset.alreadyExists) {
             content = (
                 <div className="notification">
                     <span className="error">Sorry, someone has already registered this asset!, Upload a new asset</span>
                 </div>
             )
-        } 
+        } else if (this.state.checking) {
+            content = (
+                <div>
+                   
+                    <div id="hash-progress-indicator">
+                        <ProgressIndicator type="linear" />
+                        <span className="blink-me">Wait! Verifying asset on blockchain...</span>
+                    </div>
+                </div>
+            )
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    {content}
+                </form>
+            )
+        }
+
         return (
             <form onSubmit={handleSubmit}>
                 {content}

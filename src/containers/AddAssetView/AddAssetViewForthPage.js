@@ -49,10 +49,9 @@ class AddAssetViewForthPage extends Component {
         if(!this.state.submitted) {
             content = (
                 <div>
-                    <h2>Wait! Asset is being registered on blockchain.</h2>
                     <div id="hash-progress-indicator">
                         <ProgressIndicator type="linear" />
-                        <span className="blink-me">Please hold on...</span>
+                        <span className="blink-me">Wait! Asset is being registered on blockchain...</span>
                     </div>
                 </div>
             )
