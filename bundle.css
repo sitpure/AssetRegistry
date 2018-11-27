@@ -82,7 +82,8 @@
   margin-right: auto; }
 
 .ylkDOQs_8x-6QZ4LMbBNb .add-asset-view-form-container {
-  margin-top: 20px; }
+  margin-top: 20px;
+  max-width: 450px; }
 
 .ylkDOQs_8x-6QZ4LMbBNb .wiz-btn-container {
   text-align: right;
@@ -260,8 +261,6 @@
     list-style-type: none;
     display: inline-block; }
 /********* COLORS **********/
-/********* COLORS **********/
-/********* COLORS **********/
 ._26-UraAJ8b1JuV2iHh9Yzn .desc {
   padding: 10px 5px;
   background-color: #f4f3ef; }
@@ -272,6 +271,8 @@
   margin: 10px;
   border: 1px solid black;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5); }
+/********* COLORS **********/
+/********* COLORS **********/
 /********* COLORS **********/
 /********* COLORS **********/
 ._15ozwsCaDw7mLeDbrlnVj4 #register-actions {
