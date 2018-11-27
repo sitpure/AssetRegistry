@@ -59,9 +59,6 @@
     left: 10px;
     font-weight: bold; }
 /********* COLORS **********/
-._2SvSoRQozch0ISsZPx9ZIs .btn {
-  cursor: pointer; }
-/********* COLORS **********/
 /********* COLORS **********/
 .ylkDOQs_8x-6QZ4LMbBNb .form-field {
   margin: 5px; }
@@ -98,7 +95,8 @@
   color: red; }
 
 .ylkDOQs_8x-6QZ4LMbBNb #add-asset-view {
-  margin: auto; }
+  margin: auto;
+  max-width: 450px; }
   .ylkDOQs_8x-6QZ4LMbBNb #add-asset-view .img-placeholder {
     text-align: center;
     width: 200px;
@@ -187,6 +185,9 @@
     left: 10px;
     font-weight: bold; }
 /********* COLORS **********/
+._2SvSoRQozch0ISsZPx9ZIs .btn {
+  cursor: pointer; }
+/********* COLORS **********/
 /********* COLORS **********/
 ._1cD99sn5gijFND2jcfhPe0 {
   color: black; }
@@ -262,8 +263,6 @@
     list-style-type: none;
     display: inline-block; }
 /********* COLORS **********/
-/********* COLORS **********/
-/********* COLORS **********/
 ._26-UraAJ8b1JuV2iHh9Yzn .desc {
   padding: 10px 5px;
   background-color: #f4f3ef; }
@@ -274,6 +273,8 @@
   margin: 10px;
   border: 1px solid black;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5); }
+/********* COLORS **********/
+/********* COLORS **********/
 /********* COLORS **********/
 /********* COLORS **********/
 ._15ozwsCaDw7mLeDbrlnVj4 #register-actions {
