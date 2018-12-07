@@ -33,7 +33,7 @@ In addition this dapp uses Webpack, React-Router, Redux and Material-UI.
 5. Compile and migrate the contracts to kovan test network. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     truffle.cmd compile  // or try truffle compile
-    truffle.cmd migrate --network kovan  // or try truffle.cmd migrate --network kovan
+    truffle.cmd migrate --network kovan  // or try truffle migrate --network kovan
     ```
 
 6. Run the webpack server for front-end hot reloading. 
