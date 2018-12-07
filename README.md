@@ -1,46 +1,48 @@
 # React, Redux, Truffle, and Material-UI for bootstrapping a Dapp
 
-In addition to Webpack and React, this box adds: React-Router, Redux and Material-UI for easy skinning of a Dapp.
+
+Demo - Asset Registry on Ethereum blockchain using IPFS and ReactJs
+
+In addition this dapp uses Webpack, React-Router, Redux and Material-UI.
 
 ## Installation
 
-1. Install truffle and an ethereum client. For local development, try EthereumJS TestRPC.
+1. Clone this repo.
     ```javascript
-    npm install -g truffle // Version 3.0.5+ required.
+    git clone https://github.com/sitpure/AssetRegistry.git
+    ```
+
+
+2. Install truffle and an ethereum client.
+    ```javascript
+    npm install -g truffle 
     npm install -g ethereumjs-testrpc
     ```
 
-2. Compile and migrate the contracts.
+3. Install dependencies.
+	```javascript
+	npm install
+	```
+
+4. Setup infura account. They host Ethereum public nodes and allow you to connect for free'
+* Goto https://infura.io/ and register a new account
+* You will receive a email with URL to different test networks
+* Copy Kovan Test Ethereum network URL and replace XXXXXX with URL in truffle.js file
+
+
+5. Compile and migrate the contracts to kovan test network. Smart contract changes must be manually recompiled and migrated.
     ```javascript
-    truffle compile
-    truffle migrate
+    truffle.cmd compile  // or try truffle compile
+    truffle.cmd migrate --network kovan  // or try truffle.cmd migrate --network kovan
     ```
 
-3. Run the webpack server for front-end hot reloading. For now, smart contract changes must be manually recompiled and migrated.
+6. Run the webpack server for front-end hot reloading. 
     ```javascript
-    npm run start
+    npm start
     ```
 
-4. Jest is included for testing React components and Truffle's own suite is incldued for smart contracts. Be sure you've compile your contracts before running jest, or you'll receive some file not found errors.
-    ```javascript
-    // Runs Jest for component tests.
-    npm run test
-
-    // Runs Truffle's test suite for smart contract tests.
-    truffle test
-    ```
-
-5. To build the application for production, use the build command. A production build will be in the /dist folder.
+7. To build the application for production, use the build command. A production build will be in the /dist folder.
     ```javascript
     npm run build
     ```
 
-## FAQ
-
-* __Why is there both a truffle.js file and a truffle-config.js file?__
-
-    Truffle requires the truffle.js file be named truffle-config on Windows machines. Feel free to delete the file that doesn't correspond to your platform.
-
-* __Where is my production build?__
-
-    The production build will be in the /dist folder. This is because Truffle outputs contract compilations to the build folder.

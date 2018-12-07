@@ -46,6 +46,7 @@ contract AssetRepo is Ownable {
    mapping (uint32 => AssetOwner[]) private assetOwners;
    mapping (uint32 => Transaction) private transactions;
    
+   // Check if asset image is already registered by someone else
   function checkIfRegistered(string assetHash) constant returns (bool) {
     return assets_hash[assetHash] > 0;
   }
@@ -58,6 +59,7 @@ contract AssetRepo is Ownable {
   event AssetRegisteredEvent(uint32 id, string assetHash, string desc, string tags, uint32 price, string ownerName, string ownerEmail);
   event AssetDeletedEvent(uint32 id);
   
+  /*
   function deleteAll() public onlyOwner {
 
 		  delete assets_key;
@@ -69,11 +71,11 @@ contract AssetRepo is Ownable {
 
 		AssetDeletedEvent(0);
   }
+  */
 
-
-
+  // Register asset image with other details
   function registerAsset(string assetHash, string desc, string tags, uint32 price, string ownerName, string ownerEmail) public {
-	//require(assetHash.length >= 10);		
+	//require(assetHash.length >= 10);		// we can perform some validation here
 	Asset memory asset;
 	
 	asset.id = uint32(random() + assets_key.length); // random number workaround
@@ -82,7 +84,7 @@ contract AssetRepo is Ownable {
 	asset.price = price;
 	asset.assetHash = assetHash;
 	assets_key.push(asset.id); // solidity does not allow to iterate mappings. Hence storing keys  
-    assets_hash[assetHash] = asset.id; // opps, too much of duplicate data just because no iteration allowed in solidity
+    assets_hash[assetHash] = asset.id; // Opps!, too much of duplicate data just because no iteration allowed in solidity
 	assets[asset.id] = asset;	
     allData[msg.sender].assets.push(asset.id);
 	transferAsset(asset.id, msg.sender, ownerName, ownerEmail);
@@ -91,8 +93,11 @@ contract AssetRepo is Ownable {
 	AssetRegisteredEvent(asset.id, assetHash, desc, tags, price, ownerName, ownerEmail);
   }
   
-  
+  // Transfer asset to new owner 
   function transferAsset(uint32 assetId, address newOwner, string ownerName, string ownerEmail) public{
+  
+	// TODO : implement code to authorize transfer
+
 	  AssetOwner memory nOwner;
 	  nOwner.owner = newOwner;
 	  nOwner.ownerSince =uint32(now);
@@ -102,49 +107,39 @@ contract AssetRepo is Ownable {
 	  assetOwners[assetId].push(nOwner); 
   }
 
-  
+  // Get asset count in store
   function getAssetCount() public view returns (uint32) {
       return uint32(assets_key.length);
   }
   
+  // Get asset by asset Id
   function getAssetId(uint32 index) public view returns (uint32)  {
 	return assets_key[index];
   }
   
   
-  
+  // Get all asset Ids
   function getAssetIds() public view returns (uint32[]) {
       return assets_key;
   }
 
-
+  // Get asset by index
   function getAssetByIndex(uint32 index) public view returns (string desc, string tags,uint32 id,uint32 price, string assetHash)  {
-
 	  Asset memory a = assets[assets_key[index]];
-
-	  return (a.desc, a.tags, uint32(a.id), uint32(a.price), a.assetHash);
-			
+	  return (a.desc, a.tags, uint32(a.id), uint32(a.price), a.assetHash);	
   }
-      
+  
+  // Get asset by Id
   function getAssetById(uint32 id) public view returns (Asset)  {
 	return assets[id];		
   }
   
 
-
-  uint32[] randomnumbers ;
-  
-  function randowms() public view returns (uint32 []){
-     
-     for(uint32 i = 0; i < 100; i++) {
-		randomnumbers.push(random() + i );		
-	}
-      return randomnumbers;
-  }
-  
+  // Get Random number
   function random() public view returns (uint32) {
   // This is very basic random number generator. It returns same number if you call it multiple times in quick succession	
 		return uint32(uint32(keccak256(abi.encodePacked(block.timestamp + now, block.difficulty))));
    }
    
+
 }

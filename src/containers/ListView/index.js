@@ -54,7 +54,7 @@ class ListView extends Component {
             return (
                 <div className={styles}>
                     <h2>Registered Assets</h2>
-                    <span>Assets are registered using smart contract on Ethereum blockchain network. All images and documents are stored on decentralised IPFS servers.</span>
+                    <span>Assets are registered using smart contract on Ethereum blockchain network. All images and documents are stored on decentralized IPFS servers.</span>
                     <br /><br />
                     <AssetList assetList={assetList} assetClicked={() => assetClicked()} />
                 </div>

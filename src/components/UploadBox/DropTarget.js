@@ -92,11 +92,7 @@ class DropTarget extends Component {
             name="myFile"
             type="file"
             ref={(input) => { this.inputElement = input }}
-            onChange={this.handleFileUpload} />
-                <div id="upload-text">
-          {fileList}
-                    {helperText}
-                    </div>
+            onChange={this.handleFileUpload} />  
         </div>
       </div>
     )

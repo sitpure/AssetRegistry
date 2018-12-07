@@ -1,6 +1,6 @@
 {
-  "short_name": "React Dapps",
-  "name": "React Dapps - Course Code",
+  "short_name": "Demo - Asset Registry",
+  "name": "Demo - Asset Registry on Ethereum blockchain using IPFS and ReactJs",
   "start_url": "./?utm_source=web_app_manifest",
   "icons": [
     {

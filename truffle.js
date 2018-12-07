@@ -1,7 +1,7 @@
 
 var HDWalletProvider = require("truffle-hdwallet-provider");
 
-var infura_apikey = "XXXXXX";
+var infura_api_url = "XXXXXX";
 //var mnemonic = "twelve words you can find in metamask/settings/reveal seed words blabla";
 var mnemonic = "able middle hen maximum luggage merge dawn holiday gun pear elephant captain";
 
@@ -16,14 +16,14 @@ module.exports = {
             network_id: "*" // Match any network id
         },
         kovan: {
-            provider: new HDWalletProvider(mnemonic, "https://kovan.infura.io/X3rTOAZ8U79sErtKTBnh"),
+            provider: new HDWalletProvider(mnemonic, infura_api_url),
             network_id: "*",
             gas: 6000000,
             gasPrice: 35000000000
 
         },
         42: {
-            provider: new HDWalletProvider(mnemonic, "https://kovan.infura.io/X3rTOAZ8U79sErtKTBnh"),
+            provider: new HDWalletProvider(mnemonic, infura_api_url),
             network_id: "*",
             gas: 6000000,
             gasPrice: 35000000000
