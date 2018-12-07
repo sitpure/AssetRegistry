@@ -25,9 +25,9 @@ In addition this dapp uses Webpack, React-Router, Redux and Material-UI.
 	```
 
 4. Setup infura account. They host Ethereum public nodes and allow you to connect for free'
-* Goto https://infura.io/ and register a new account
-* You will receive a email with URL to different test networks
-* Copy Kovan Test Ethereum network URL and replace XXXXXX with URL in truffle.js file
+	* Goto https://infura.io/ and register a new account
+	* You will receive a email with URL to different test networks
+	* Copy Kovan Test Ethereum network URL and replace XXXXXX with URL in truffle.js file
 
 
 5. Compile and migrate the contracts to kovan test network. Smart contract changes must be manually recompiled and migrated.
